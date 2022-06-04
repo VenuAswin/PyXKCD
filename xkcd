@@ -31,7 +31,7 @@ class Xkcd:
             image_file = img_response.content
             with open("/tmp/img", "wb") as foo :
                 foo.write(image_file)
-            subprocess.popen(["feh", "/tmp/img"])
+            subprocess.Popen(["feh", "/tmp/img"])
 
 ob = Xkcd()
 ob.get_random_comic()
