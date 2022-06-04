@@ -2,14 +2,15 @@
 
 import requests
 import re
-import os
+import subprocess
 import time
 
 class Xkcd:
     def __init__(self) :
         print("fetching a random xkcd comic")
-        self.url = "https://c.xkcd.com/random/comic/"
-        self.regex = "(?<=<meta property=\"og:image\" content=\")(.*)(?=\">)"
+        self.url = "https://c.xkcd.com/random/comic/"  #get a random comic
+        self.regex = "(?<=<meta property=\"og:image\" content=\")(.*)(?=\">)"       
+        #image link is given in the page as <meta property="og:image" content="https://imgs.xkcd.com/comics/kill_hitler_2x.png">
         self.pattern = re.compile(self.regex)
         self.img_src = None
         self.delay = 2
@@ -22,7 +23,7 @@ class Xkcd:
 
     def get_random_comic(self) :
             self.get_random_comic_url()
-            while(self.img_src == "https://imgs.xkcd.com/comics/") :
+            while(self.img_src == "https://imgs.xkcd.com/comics/") :    #sometimes the server do not give any link to image and gives this link instead
                 print("Server denied connection, don't worry, retrying in", self.delay, "seconds")
                 time.sleep(self.delay)
                 self.get_random_comic_url()
@@ -30,7 +31,7 @@ class Xkcd:
             image_file = img_response.content
             with open("/tmp/img", "wb") as foo :
                 foo.write(image_file)
-            os.system("feh /tmp/img")
+            subprocess.popen(["feh", "/tmp/img"])
 
 ob = Xkcd()
 ob.get_random_comic()
