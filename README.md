@@ -1,5 +1,6 @@
 # PyXKCD
-A python script to show random XKCD comics. 
+A python script to show random XKCD comics.  
+You need feh image viewer installed
 Downloads a random xkcd comic into the temporary filesystem,"/tmp" and used feh to view the image. Place the code in your PATH, make in executable, and run the command
 
 ```bash
