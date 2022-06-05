@@ -11,6 +11,6 @@ def show_image(self) :
 ```
 
 ```bash
-chmod u+x pyxkcd  #make is executable
+chmod u+x pyxkcd  #make the script executable
 pyxkcd #runs the program 
 ```
