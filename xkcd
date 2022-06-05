@@ -17,7 +17,6 @@ class Xkcd :
         html_data = urllib.request.urlopen(self.url)
         json_data = json.loads(html_data.read())
         self.num_comics = json_data['num']
-        print(self.num_comics)
 
     def download_image(self) :
         urllib.request.urlretrieve(self.image_url, "/tmp/image")
