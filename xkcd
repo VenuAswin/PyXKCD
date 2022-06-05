@@ -31,7 +31,7 @@ class Xkcd :
         self.download_image()
 
     def show_image(self) :
-        subprocess.Popen(["feh", "/tmp/image"], shell = True)
+        subprocess.Popen(["feh", "/tmp/image"])
         exit()
 
 if __name__ == "__main__" :
